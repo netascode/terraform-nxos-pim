@@ -11,7 +11,7 @@ Model Documentation: [Link](https://developer.cisco.com/docs/cisco-nexus-3000-an
 
 ```hcl
 module "nxos_pim" {
-  source  = "netascode/ospf/pim"
+  source  = "netascode/pim/nxos"
   version = ">= 0.1.0"
 
   vrfs = [

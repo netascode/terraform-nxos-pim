@@ -13,7 +13,7 @@ Note that this example will create resources. Resources can be destroyed with `t
 
 ```hcl
 module "nxos_pim" {
-  source  = "netascode/ospf/pim"
+  source  = "netascode/pim/nxos"
   version = ">= 0.1.0"
 
   vrfs = [
