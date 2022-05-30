@@ -1,3 +1,8 @@
+## 0.1.3 (unreleased)
+
+- Use 224.0.0.0/4 as default group_range for RPs
+- BREAKING CHANGE: Change interfaces.bfd variable from boolean to string
+
 ## 0.1.2
 
 - Fix dr_priority validation
