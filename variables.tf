@@ -12,9 +12,8 @@ variable "vrfs" {
   Default value `bidir`: `false`.
   Default value `override`: `false`.
   Default value `interfaces.admin_state`: `true`.
-  Default value `interfaces.bfd`: `false`.
-  Allowed values `dr_priority`: `1`-`4294967295`.
-  Default value `dr_priority`: `1`.
+  Choices `interfaces.bfd`: `unspecified`, `enabled`, `disabled`. Default value `interfaces.bfd`: `unspecified`.
+  Allowed values `dr_priority`: `1`-`4294967295`. Default value `dr_priority`: `1`.
   Default value `passive`: `false`.
   Default value `sparse_mode`: `false`.
   EOT
@@ -37,7 +36,7 @@ variable "vrfs" {
     interfaces = optional(list(object({
       interface   = string
       admin_state = optional(bool)
-      bfd         = optional(bool)
+      bfd         = optional(string)
       dr_priority = optional(number)
       passive     = optional(bool)
       sparse_mode = optional(bool)
@@ -79,6 +78,15 @@ variable "vrfs" {
       ]
     ]))
     error_message = "`anycast_rps.set_address`: Allowed formats are: `10.1.1.1`."
+  }
+
+  validation {
+    condition = alltrue(flatten([
+      for value in var.vrfs : value.interfaces == null ? [true] : [
+        for v in value.interfaces : try(contains(["unspecified", "enabled", "disabled"], v.bfd), v.bfd == null)
+      ]
+    ]))
+    error_message = "`interfaces.bfd`: Allowed values are: `unspecified`, `enabled` or `disabled`."
   }
 
   validation {
