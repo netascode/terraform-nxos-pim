@@ -84,7 +84,7 @@ variable "vrfs" {
   validation {
     condition = alltrue(flatten([
       for value in var.vrfs : value.interfaces == null ? [true] : [
-        for v in value.interfaces : (v.dr_priority >= 1 && v.dr_priority <= 4294967295) || v.dr_priority == null
+        for v in value.interfaces : try(v.dr_priority >= 1 && v.dr_priority <= 4294967295, false) || v.dr_priority == null
       ]
     ]))
     error_message = "`dr_priority`: Allowed range: `1`-`4294967295`."

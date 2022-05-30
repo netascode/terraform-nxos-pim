@@ -1,3 +1,7 @@
+## 0.1.2 (unreleased)
+
+- Fix dr_priority validation
+
 ## 0.1.1
 
 - Fix typo in example module source
