@@ -44,7 +44,7 @@ module "main" {
         {
           interface   = "vlan100"
           admin_state = true
-          bfd         = true
+          bfd         = "enabled"
           dr_priority = 10
           passive     = false
           sparse_mode = true
