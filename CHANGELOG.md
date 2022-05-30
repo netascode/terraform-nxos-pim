@@ -1,4 +1,4 @@
-## 0.1.3 (unreleased)
+## 0.1.3
 
 - Use 224.0.0.0/4 as default group_range for RPs
 - BREAKING CHANGE: Change interfaces.bfd variable from boolean to string
