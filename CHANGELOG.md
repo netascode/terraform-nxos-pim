@@ -1,3 +1,7 @@
+## 0.2.0 (unreleased)
+
+- BREAKING CHANGE: Migrate to Terraform 1.3 optionals syntax
+
 ## 0.1.3
 
 - Use 224.0.0.0/4 as default group_range for RPs

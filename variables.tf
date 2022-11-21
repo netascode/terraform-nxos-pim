@@ -19,28 +19,28 @@ variable "vrfs" {
   EOT
   type = list(object({
     name        = string
-    admin_state = optional(bool)
-    bfd         = optional(bool)
+    admin_state = optional(bool, true)
+    bfd         = optional(bool, false)
     rps = optional(list(object({
       address     = string
-      group_range = optional(string)
-      bidir       = optional(bool)
-      override    = optional(bool)
-    })))
+      group_range = optional(string, "224.0.0.0/4")
+      bidir       = optional(bool, false)
+      override    = optional(bool, false)
+    })), [])
     anycast_rp_local_interface  = optional(string)
     anycast_rp_source_interface = optional(string)
     anycast_rps = optional(list(object({
       address     = string
       set_address = string
-    })))
+    })), [])
     interfaces = optional(list(object({
       interface   = string
-      admin_state = optional(bool)
-      bfd         = optional(string)
-      dr_priority = optional(number)
-      passive     = optional(bool)
-      sparse_mode = optional(bool)
-    })))
+      admin_state = optional(bool, true)
+      bfd         = optional(string, "unspecified")
+      dr_priority = optional(number, 1)
+      passive     = optional(bool, false)
+      sparse_mode = optional(bool, false)
+    })), [])
   }))
   default = []
 

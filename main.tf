@@ -34,8 +34,8 @@ resource "nxos_pim_vrf" "pimDom" {
   for_each    = { for v in var.vrfs : v.name => v }
   device      = var.device
   name        = each.value.name
-  admin_state = each.value.admin_state == null || each.value.admin_state == true ? "enabled" : "disabled"
-  bfd         = each.value.bfd != null ? each.value.bfd : false
+  admin_state = each.value.admin_state == true ? "enabled" : "disabled"
+  bfd         = each.value.bfd
 
   depends_on = [
     nxos_pim_instance.pimInst
@@ -61,9 +61,9 @@ resource "nxos_pim_static_rp_group_list" "pimRPGrpList" {
   device     = var.device
   vrf_name   = nxos_pim_static_rp.pimStaticRP[each.key].vrf_name
   rp_address = nxos_pim_static_rp.pimStaticRP[each.key].address
-  address    = each.value.group_range != null ? each.value.group_range : "224.0.0.0/4"
-  bidir      = each.value.bidir != null ? each.value.bidir : false
-  override   = each.value.override != null ? each.value.override : false
+  address    = each.value.group_range
+  bidir      = each.value.bidir
+  override   = each.value.override
 }
 
 resource "nxos_pim_anycast_rp" "pimAcastRPFuncP" {
@@ -87,9 +87,9 @@ resource "nxos_pim_interface" "pimIf" {
   device       = var.device
   vrf_name     = nxos_pim_vrf.pimDom[each.value.vrf].name
   interface_id = each.value.interface
-  admin_state  = each.value.admin_state == null || each.value.admin_state == true ? "enabled" : "disabled"
-  bfd          = each.value.bfd != null ? (each.value.bfd == "unspecified" ? "none" : each.value.bfd) : "none"
-  dr_priority  = each.value.dr_priority != null ? each.value.dr_priority : 1
-  passive      = each.value.passive != null ? each.value.passive : false
-  sparse_mode  = each.value.sparse_mode != null ? each.value.sparse_mode : false
+  admin_state  = each.value.admin_state == true ? "enabled" : "disabled"
+  bfd          = each.value.bfd == "unspecified" ? "none" : each.value.bfd
+  dr_priority  = each.value.dr_priority
+  passive      = each.value.passive
+  sparse_mode  = each.value.sparse_mode
 }

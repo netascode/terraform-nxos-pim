@@ -12,7 +12,7 @@ Model Documentation: [Link](https://developer.cisco.com/docs/cisco-nexus-3000-an
 ```hcl
 module "nxos_pim" {
   source  = "netascode/pim/nxos"
-  version = ">= 0.1.3"
+  version = ">= 0.2.0"
 
   vrfs = [
     {
@@ -54,7 +54,7 @@ module "nxos_pim" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
 | <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.19 |
 
 ## Providers
@@ -68,7 +68,7 @@ module "nxos_pim" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_device"></a> [device](#input\_device) | A device name from the provider configuration. | `string` | `null` | no |
-| <a name="input_vrfs"></a> [vrfs](#input\_vrfs) | PIM VRF list.<br>  Default value `admin_state`: `true`.<br>  Default value `bfd`: `false`.<br>  Default value `bidir`: `false`.<br>  Default value `override`: `false`.<br>  Default value `interfaces.admin_state`: `true`.<br>  Choices `interfaces.bfd`: `unspecified`, `enabled`, `disabled`. Default value `interfaces.bfd`: `unspecified`.<br>  Allowed values `dr_priority`: `1`-`4294967295`. Default value `dr_priority`: `1`.<br>  Default value `passive`: `false`.<br>  Default value `sparse_mode`: `false`. | <pre>list(object({<br>    name        = string<br>    admin_state = optional(bool)<br>    bfd         = optional(bool)<br>    rps = optional(list(object({<br>      address     = string<br>      group_range = optional(string)<br>      bidir       = optional(bool)<br>      override    = optional(bool)<br>    })))<br>    anycast_rp_local_interface  = optional(string)<br>    anycast_rp_source_interface = optional(string)<br>    anycast_rps = optional(list(object({<br>      address     = string<br>      set_address = string<br>    })))<br>    interfaces = optional(list(object({<br>      interface   = string<br>      admin_state = optional(bool)<br>      bfd         = optional(string)<br>      dr_priority = optional(number)<br>      passive     = optional(bool)<br>      sparse_mode = optional(bool)<br>    })))<br>  }))</pre> | `[]` | no |
+| <a name="input_vrfs"></a> [vrfs](#input\_vrfs) | PIM VRF list.<br>  Default value `admin_state`: `true`.<br>  Default value `bfd`: `false`.<br>  Default value `bidir`: `false`.<br>  Default value `override`: `false`.<br>  Default value `interfaces.admin_state`: `true`.<br>  Choices `interfaces.bfd`: `unspecified`, `enabled`, `disabled`. Default value `interfaces.bfd`: `unspecified`.<br>  Allowed values `dr_priority`: `1`-`4294967295`. Default value `dr_priority`: `1`.<br>  Default value `passive`: `false`.<br>  Default value `sparse_mode`: `false`. | <pre>list(object({<br>    name        = string<br>    admin_state = optional(bool, true)<br>    bfd         = optional(bool, false)<br>    rps = optional(list(object({<br>      address     = string<br>      group_range = optional(string, "224.0.0.0/4")<br>      bidir       = optional(bool, false)<br>      override    = optional(bool, false)<br>    })), [])<br>    anycast_rp_local_interface  = optional(string)<br>    anycast_rp_source_interface = optional(string)<br>    anycast_rps = optional(list(object({<br>      address     = string<br>      set_address = string<br>    })), [])<br>    interfaces = optional(list(object({<br>      interface   = string<br>      admin_state = optional(bool, true)<br>      bfd         = optional(string, "unspecified")<br>      dr_priority = optional(number, 1)<br>      passive     = optional(bool, false)<br>      sparse_mode = optional(bool, false)<br>    })), [])<br>  }))</pre> | `[]` | no |
 
 ## Outputs
 
