@@ -55,13 +55,13 @@ module "nxos_pim" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.3.19 |
+| <a name="requirement_nxos"></a> [nxos](#requirement\_nxos) | >= 0.5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.3.19 |
+| <a name="provider_nxos"></a> [nxos](#provider\_nxos) | >= 0.5.0 |
 
 ## Inputs
 
@@ -80,13 +80,13 @@ module "nxos_pim" {
 
 | Name | Type |
 |------|------|
-| [nxos_pim.pimEntity](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim) | resource |
-| [nxos_pim_anycast_rp.pimAcastRPFuncP](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_anycast_rp) | resource |
-| [nxos_pim_anycast_rp_peer.pimAcastRPPeer](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_anycast_rp_peer) | resource |
-| [nxos_pim_instance.pimInst](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_instance) | resource |
-| [nxos_pim_interface.pimIf](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_interface) | resource |
-| [nxos_pim_static_rp.pimStaticRP](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_static_rp) | resource |
-| [nxos_pim_static_rp_group_list.pimRPGrpList](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_static_rp_group_list) | resource |
-| [nxos_pim_static_rp_policy.pimStaticRPP](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_static_rp_policy) | resource |
-| [nxos_pim_vrf.pimDom](https://registry.terraform.io/providers/netascode/nxos/latest/docs/resources/pim_vrf) | resource |
+| [nxos_pim.pimEntity](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim) | resource |
+| [nxos_pim_anycast_rp.pimAcastRPFuncP](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_anycast_rp) | resource |
+| [nxos_pim_anycast_rp_peer.pimAcastRPPeer](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_anycast_rp_peer) | resource |
+| [nxos_pim_instance.pimInst](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_instance) | resource |
+| [nxos_pim_interface.pimIf](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_interface) | resource |
+| [nxos_pim_static_rp.pimStaticRP](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_static_rp) | resource |
+| [nxos_pim_static_rp_group_list.pimRPGrpList](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_static_rp_group_list) | resource |
+| [nxos_pim_static_rp_policy.pimStaticRPP](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_static_rp_policy) | resource |
+| [nxos_pim_vrf.pimDom](https://registry.terraform.io/providers/CiscoDevNet/nxos/latest/docs/resources/pim_vrf) | resource |
 <!-- END_TF_DOCS -->
